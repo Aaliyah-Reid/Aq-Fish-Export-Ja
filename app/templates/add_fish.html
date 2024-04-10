@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<h1 class="display-5 fw-bold">Add Fish</h1>
+
+<div class="form_container">
+
+    <form action="{{url_for('addFish')}}" method="post" enctype="multipart/form-data">
+        {{form.csrf_token}}
+
+        <div class="max-fields">
+            {{form.name.label(class='form-label')}}
+            {{ form.name.(placeholder="Enter fish name", class="form-control")}}
+
+            {{form.breed.label(class='form-label')}}
+            {{ form.breed.(placeholder="Enter fish breed", class="form-control")}}
+    
+
+    
+
+            {{form.description.label(class='form-label')}}
+            {{ form.description.(placeholder="Provide a detailed description", class="form-control")}}
+
+            {{form.availability.label(class='form-label')}}
+            {{ form.availability.(class="form-control")}}
+
+            {{form.photo.label(class='form-label')}}
+            {{form.photo.(class="form-contorl small-control")}}
+    
+            
+        
+        </div>
+        
+
+        
+        <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
+        
+    </form>
+
+</div>
+
+
+
+{% endblock %}
