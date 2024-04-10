@@ -7,11 +7,11 @@ This file contains the routes for your application.
 import os
 from app import app, db
 from flask import flash, render_template, request, redirect, url_for
-from .forms import addFishForm
+from app.forms import addFishForm
 from app.models import Fish
 from werkzeug.utils import secure_filename
 
-###
+##
 # Routing for your application.
 ###
 
@@ -38,7 +38,7 @@ def addFish():
 
             filename = secure_filename(photo.filename)
 
-            newFish = Fish(name,breed, description filename)
+            newFish = Fish(name,breed, description, filename)
             
             db.session.add(newFish)
             db.session.commit()
@@ -55,7 +55,7 @@ def addFish():
             
 
 
-@app.route('fishes')
+@app.route('/fishes')
 def viewFishes():
     pass
 
@@ -97,3 +97,7 @@ def add_header(response):
 def page_not_found(error):
     """Custom 404 page."""
     return render_template('404.html'), 404
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
