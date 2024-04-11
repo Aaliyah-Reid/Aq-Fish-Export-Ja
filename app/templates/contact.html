@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block css %} 
+<style>
+    .contact-form {
+        margin: 20px auto;
+        width: 80%;
+        max-width: 600px;
+    }
+    .contact-form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .contact-form input, .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .contact-form input[type="checkbox"] {
+        width: auto;
+        margin-right: 10px;
+    }
+    .contact-form button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .contact-form button:hover {
+        background-color: #0056b3;
+    }
+</style>
+{% endblock %}
+
+{% block main %}
+
+
+<div class="contact-form">
+    <h1>Contact Us</h1>
+    <form action="/send-email" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="fish">Fish Interested In (if applicable):</label>
+        <input type="text" id="fish" name="fish">
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <label>
+            <input type="checkbox" name="subscribe" value="subscribe">
+            I want to be notified about new stock.
+        </label>
+
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block js %}{% endblock %}

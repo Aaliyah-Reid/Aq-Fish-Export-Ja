@@ -4,31 +4,33 @@ Jinja2 Documentation:    https://jinja.palletsprojects.com/
 Werkzeug Documentation:  https://werkzeug.palletsprojects.com/
 This file contains the routes for your application.
 """
+from mailbox import Message
 import os
-from app import app, db
+from app import app, db, login_manager
 from flask import flash, render_template, request, redirect, url_for
-from app.forms import addFishForm
-from app.models import Fish
 from werkzeug.utils import secure_filename
-
+from werkzeug.security import check_password_hash
+from flask_login import login_required, login_user, logout_user, current_user
+from app.forms import AddFishForm, LoginForm, ContactForm
+from app.models import Fish, UserProfile
+from app import mail
 ##
 # Routing for your application.
 ###
 
 @app.route('/')
 def home():
-    """Render website's home page."""
     return render_template('home.html')
 
 
 @app.route('/about/')
 def about():
-    """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html')
 
-@app.route('/admin/fishes/update', methods=['POST', 'GET'])
+@app.route('/admin/upload', methods=['POST', 'GET'])
+@login_required
 def addFish():
-    form = addFishForm()
+    form = AddFishForm()
     if request.method == 'POST':
         if form.validate_on_submit():
             name = form.name.data
@@ -52,14 +54,87 @@ def addFish():
 
     return render_template('add_fish.html', form=form)
 
-            
+
+@app.route('/admin/dashboard')
+def admin_dashboard():
+    return render_template('admin_dashboard.html')
 
 
 @app.route('/fishes')
 def viewFishes():
-    pass
+    return render_template('fishes.html')
 
-# @app.route('/properties/<fishid>')
+
+@app.route('/contact', methods=['GET', 'POST'])  # Ensure methods are defined for GET and POST requests
+def contact():
+    form = ContactForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        email = form.email.data
+        subject = form.subject.data
+        fish = form.fish.data
+        message = form.message.data
+        subscribe = form.subscribe.data
+
+    
+        full_message = f"Name: {name}\nEmail: {email}\n\nMessage: {message}\n\n"
+        if fish:  
+            full_message += f"Fish Interested In: {fish}\n"
+        if subscribe:  
+            full_message += "The user has subscribed to new stock notifications."
+
+        msg = Message(
+            subject,
+            sender=(name, email),
+            recipients=["aaliyahreid12345@gmail.com"]
+        )
+        msg.body = full_message
+        mail.send(msg)
+        flash('You have successfully filled out the form', 'success')
+        return redirect(url_for('home'))  
+    
+    flash_errors(form) 
+
+    return render_template('contact.html', form=form)  
+
+
+# @app.route('/fishes/<fishid>')
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+
+        # Query for the user based on username
+        user = db.session.execute(db.select(UserProfile).filter_by(username=username)).scalar()
+
+        
+        # Verify user and password
+        if user and check_password_hash(user.password, password):
+            if user.is_admin:  # Check if user has admin privileges
+                login_user(user)
+                flash('Logged in successfully as admin!', 'success')
+                return redirect(url_for("/admin/dashboard"))  # Make sure this is the correct endpoint
+            else:
+                flash('Access denied. Admin privileges required.', 'danger')
+        else:
+            flash('Username or Password is incorrect.', 'danger')
+
+    return render_template("login.html", form=form)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    flash('Logged out successfully.', 'success')
+    return redirect(url_for('home'))
+
+@login_manager.user_loader
+def load_user(id):
+    return db.session.execute(db.select(UserProfile).filter_by(id=id)).scalar()
+
 
 ###
 # The functions below should be applicable to all Flask apps.
