@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="fish">
+    <img src="{{ url_for('get_image', filename=fish.photo_filename) }}" alt="Picture of {{ fish.name }}">
+    <div class="fish-info">
+          <h3>{{fish.name}}</h3>
+          <h2>{{fish.breed}}</h2>
+          <h1>{{fish.availability}}</h1>
+          <p>{{fish.description}}</p>
+
+    </div>
+
+{% endblock %}

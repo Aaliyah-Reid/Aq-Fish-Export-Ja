@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "name": "aq-fish-export-ja",
+  "description": "Starter code for a new Flask Application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "python app/__init__.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

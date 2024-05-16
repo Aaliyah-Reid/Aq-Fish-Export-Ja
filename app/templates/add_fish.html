@@ -11,22 +11,20 @@
 
         <div class="max-fields">
             {{form.name.label(class='form-label')}}
-            {{ form.name.(placeholder="Enter fish name", class="form-control")}}
+            {{ form.name(placeholder="Enter fish name", class="form-control")}}
 
             {{form.breed.label(class='form-label')}}
-            {{ form.breed.(placeholder="Enter fish breed", class="form-control")}}
-    
-
+            {{ form.breed(placeholder="Enter fish breed", class="form-control")}}
     
 
             {{form.description.label(class='form-label')}}
-            {{ form.description.(placeholder="Provide a detailed description", class="form-control")}}
+            {{ form.description(placeholder="Provide a detailed description", class="form-control")}}
 
             {{form.availability.label(class='form-label')}}
-            {{ form.availability.(class="form-control")}}
+            {{ form.availability(class="form-control")}}
 
             {{form.photo.label(class='form-label')}}
-            {{form.photo.(class="form-contorl small-control")}}
+            {{form.photo(class="form-contorl small-control")}}
     
             
         
@@ -34,7 +32,7 @@
         
 
         
-        <button type="submit" name="submit" class="btn btn-primary">Add Property</button>
+        <button type="submit" name="submit" class="btn btn-primary">Add Fish</button>
         
     </form>
 

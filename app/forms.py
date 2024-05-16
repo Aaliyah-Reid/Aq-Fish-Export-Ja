@@ -26,5 +26,3 @@ class AddFishForm(FlaskForm):
     photo = FileField('Image File', validators=[DataRequired(), FileAllowed(['jpg', 'png', 'jpeg'], 'Images only!')])
 
 
-
-

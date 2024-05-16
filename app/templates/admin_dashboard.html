@@ -1,0 +1,48 @@
+
+{% extends "base.html" %}
+
+{% block main %}
+
+    <h1>Hi admins!</h1>
+    {% include "fishes.html" %}
+    <div id="fishes-container">
+
+    </div>
+
+    <button id="add-fish-button" class="btn btn-primary">Add Fish</button>
+
+{% endblock %}
+{% block js %}
+<script>
+    document.getElementById('add-fish-button').onclick = function() {
+        window.location.href = "{{ url_for('addFish') }}";
+    };
+
+    // Function to fetch latest fish data from the server
+    function fetchFishes() {
+        fetch("/get_fishes")
+            .then(response => response.json())
+            .then(data => {
+                const fishesContainer = document.getElementById('fishes-container');
+                fishesContainer.innerHTML = '';
+                data.forEach(fish => {
+                    const fishCard = document.createElement('div');
+                    fishCard.classList.add('fish-card');
+                    fishCard.innerHTML = `
+                        <img src="/uploads/${fish.photo_filename}" alt="Picture of ${fish.name}" data-fish-id="${fish.id}">
+                        <div class="fish-info">
+                            <h3>${fish.name}</h3>
+                            <h2>${fish.breed}</h2>
+                            <h1>${fish.availability}</h1>
+                        </div>
+                        <a class="bg-primary" href="/fishes/${fish.id}">More Info</a>
+                    `;
+                    fishesContainer.appendChild(fishCard);
+                });
+            });
+    }
+
+    fetchFishes();
+    setInterval(fetchFishes, 5000);
+</script>
+{% endblock %}

@@ -46,8 +46,8 @@ class Fish(db.Model):
         self.name = name
         self.breed = breed
         self.description = description
-        self.availabilty = availability
-        self.photo_filename = photo_filename
+        self.availability = availability
+        self.photo_filename = photo_filename 
 
     def get_id(self):
         try:
@@ -56,6 +56,6 @@ class Fish(db.Model):
             return str(self.id)  # python 3 support
     
     def __repr__(self):
-        return '<Property %r>' % (self.title)
+        return '<Fish %r>' % (self.name)
     
 
