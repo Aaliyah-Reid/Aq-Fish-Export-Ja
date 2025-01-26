@@ -1,0 +1,56 @@
+
+{% block main %}
+
+  <div class=" fishes">
+
+
+    <div class="heading">
+  
+          <h1 class="heading-text" style="color: white; font-size: 72px;">View Available Fishes</h1>
+          <h2 class="heading-text" style="color:white; font-size: 32px;">We ship every weekend!</h2>
+          <br>
+  
+      <p class="para-text" >Our commitment is to source the finest farm-raised aquatic specimens and deliver 
+        them directly to your doorstep. Raised in optimal conditions, our fish exemplify the highest 
+        standards of quality and sustainability. Explore our selection of exotic fishes, each representing
+         the rich diversity of marine life. Whether you are an importer or hobbyist we offer a 
+         curated collection of premium, sustainably-raised marine species.</p> 
+  
+      <a href="{{ url_for('contact') }}" class="contact-button">Contact Us</a> 
+    </div>
+    
+    <br>
+
+     <!-- <div class="search-bar">
+          <input type="text" placeholder="Search fishes by name or description">
+      </div> -->
+
+
+
+    <div class="fishes-container">
+
+      {% for fish in fishes%}
+      <div class="fish-card">
+        <img src="{{ url_for('get_image', filename=fish.photo_filename) }}" alt="Picture of {{ fish.name }}">
+        <div class="fish-info">
+          <h2>{{fish.name}}</h2>
+          <h3>{{fish.breed}}</h3>
+          <!-- <h5>{{fish.availability}}</h5> -->
+          <p>{{fish.description}}</p>
+         
+        
+
+        </div>
+        <a  href="{{ url_for('view_fish', fishid=fish.id) }}" class="info-button">More Info</a>
+      </div>
+    {% endfor %}
+      
+
+
+
+    </div>
+    
+  </div>
+
+
+{% endblock %}

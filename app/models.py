@@ -38,15 +38,17 @@ class Fish(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     breed = db.Column(db.String(80))
-    description = db.Column(db.String(250))
+    description = db.Column(db.String(400))
     availability = db.Column(db.String(80))
+    add_info = db.Column(db.String(4000))
     photo_filename = db.Column(db.String(255))
 
-    def __init__(self, name, breed, description, availability , photo_filename):
+    def __init__(self, name, breed, description, availability, add_info, photo_filename):
         self.name = name
         self.breed = breed
         self.description = description
         self.availability = availability
+        self.add_info = add_info
         self.photo_filename = photo_filename 
 
     def get_id(self):

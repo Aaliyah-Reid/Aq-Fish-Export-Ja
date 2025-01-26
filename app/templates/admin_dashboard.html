@@ -1,17 +1,19 @@
-
 {% extends "base.html" %}
 
 {% block main %}
+    <div class="fishes">
+        <div class="heading">
+            <h1 class="heading-text" style="color: white; font-size: 72px;">Admin Dashboard</h1>
+            <h2 class="heading-text" style="color:white; font-size: 32px;">Manage Fishes</h2>
+        </div>
+        <button id="add-fish-button" class="info-button" style="margin-left: auto; margin-top: 20px;"><i class="fa-solid fa-plus" style="color: #fafafa; margin-right: 5px;"></i>Add Fish</button>
 
-    <h1>Hi admins!</h1>
-    {% include "fishes.html" %}
-    <div id="fishes-container">
 
+        <!-- Use the same container class -->
+        <div id="fishes-container" class="fishes-container"></div>
     </div>
-
-    <button id="add-fish-button" class="btn btn-primary">Add Fish</button>
-
 {% endblock %}
+
 {% block js %}
 <script>
     document.getElementById('add-fish-button').onclick = function() {
@@ -24,24 +26,26 @@
             .then(response => response.json())
             .then(data => {
                 const fishesContainer = document.getElementById('fishes-container');
-                fishesContainer.innerHTML = '';
+                fishesContainer.innerHTML = ''; // Clear the container
                 data.forEach(fish => {
+                    // Create a card structure using the same layout as fish_details.html
                     const fishCard = document.createElement('div');
                     fishCard.classList.add('fish-card');
                     fishCard.innerHTML = `
-                        <img src="/uploads/${fish.photo_filename}" alt="Picture of ${fish.name}" data-fish-id="${fish.id}">
+                        <img src="/uploads/${fish.photo_filename}" alt="Picture of ${fish.name}">
                         <div class="fish-info">
-                            <h3>${fish.name}</h3>
-                            <h2>${fish.breed}</h2>
-                            <h1>${fish.availability}</h1>
+                            <h2>${fish.name}</h2>
+                            <h3>${fish.breed}</h3>
+                            <p>${fish.description || 'No description available.'}</p>
                         </div>
-                        <a class="bg-primary" href="/fishes/${fish.id}">More Info</a>
+                        <a class="info-button" href="/fishes/${fish.id}">More Info</a>
                     `;
                     fishesContainer.appendChild(fishCard);
                 });
             });
     }
 
+    // Fetch data initially and refresh every 5 seconds
     fetchFishes();
     setInterval(fetchFishes, 5000);
 </script>

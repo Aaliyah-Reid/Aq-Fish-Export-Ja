@@ -39,11 +39,12 @@ def addFish():
             description = form.description.data
             availability = form.availability.data
             print(availability)
+            add_info = form.add_info.data
             photo = form.photo.data
 
             filename = secure_filename(photo.filename)
 
-            newFish = Fish(name,breed, description,availability, filename)
+            newFish = Fish(name,breed, description,availability,add_info, filename)
             print(newFish)
             
             db.session.add(newFish)
@@ -86,6 +87,7 @@ def get_fishes():
             'breed': fish.breed,
             'description': fish.description,
             'availability': fish.availability,
+            'add_info': fish.add_info,
             'photo_filename': fish.photo_filename
         }
         fish_data.append(fish_info)
@@ -102,7 +104,8 @@ def get_image(filename):
 def contact():
     form = ContactForm()
     if form.validate_on_submit():
-        name = form.name.data
+        first_name = form.first_name.data
+        last_name = form.last_name.data
         email = form.email.data
         subject = form.subject.data
         fish = form.fish.data
@@ -110,7 +113,7 @@ def contact():
         subscribe = form.subscribe.data
 
     
-        full_message = f"Name: {name}\nEmail: {email}\n\nMessage: {message}\n\n"
+        full_message = f"Name: {first_name}{last_name}\nEmail: {email}\n\nMessage: {message}\n\n"
         if fish:  
             full_message += f"Fish Interested In: {fish}\n"
         if subscribe:  
@@ -118,7 +121,7 @@ def contact():
 
         msg = Message(
             subject,
-            sender=(name, email),
+            sender=(f"{first_name} {last_name}", email),
             recipients=["aaliyahreid12345@gmail.com"]
         )
         msg.body = full_message

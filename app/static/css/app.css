@@ -1,12 +1,372 @@
-body {
-    padding-top: 5rem;
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css');
+
+/* Remove padding/margins from parent elements */
+main {
+  padding: 0;
+  margin: 0;
 }
+
+/* Apply box-sizing globally */
+* {
+  box-sizing: border-box;
+}
+
+body {
+    background-color: #FFF9F9;
+    margin: 0; 
+    padding: 0;
+    font-family: sans-serif, Poppins, Krub, 'Merriweather Sans', 'Lora', 'Inter';
+    min-height: 100vh; 
+  }
+
+.container{
+  padding: 20px 60px;
+  box-sizing: border-box;
+}
+
+
+.container-fluid {
+  padding-left: 60px;
+  padding-right: 60px;
+} 
+
+
+.alert{
+  border: 2px solid #274B91;
+  margin: 20px 60px;
+  padding: 10px 10px;
+  width: 400px;
+  border-radius: 10px;
+  background-color: #59b3e33b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+   
+.heading-text{
+  color: #005C99;
+  font-family: Krub;
+  font-weight: 600;
+}
+
+.para-text{
+  color: #0C0A3E;
+  font-family: Poppins;
+  font-size: 18px;
+}
+
+/* bubbles background */
+/* .buttons{
+  background-color: #005C99;
+  color: white;
+  font-family: Poppins;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+} */
+
+.hero-image img {
+
+}
+
+
+.buttons {
+  background-color: #005C99; /* Base blue color */
+  color: white;
+  font-family: Poppins;
+  border: none;
+  border-radius: 30px; /* Rounded corners */
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 16px;
+
+  /* Glossy effect */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3) 0%, /* White highlight at the top */
+    rgba(255, 255, 255, 0) 50%, /* Fade out the highlight */
+    rgba(0, 0, 0, 0.1) 51%, /* Slight shadow at the bottom */
+    rgba(0, 0, 0, 0) 100% /* Fade out the shadow */
+  );
+
+  /* Drop shadow with blue hint */
+  box-shadow: 0 4px 6px rgba(0, 92, 153, 0.3); /* Blue-tinted shadow */
+
+  /* Smooth transition for hover effects */
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for interactivity */
+.buttons:hover {
+  background-color: #004C7F; /* Darker blue on hover */
+  box-shadow: 0 6px 8px rgba(0, 92, 153, 0.5); /* Larger shadow on hover */
+}
+
+/* Active effect for when the button is clicked */
+.buttons:active {
+  background-color: #003C6F; /* Even darker blue on click */
+  box-shadow: 0 2px 4px rgba(0, 92, 153, 0.3); /* Smaller shadow on click */
+}
+
+
+/* Bubble Background */
+.bubble-background {
+  position: relative;
+  background-color: #cce7f6; /* Light blue background */
+  overflow: hidden; /* Ensures bubbles don't overflow */
+  border-radius: 100px;
+  height: 565px;
+  width: 1236px;
+  padding: 80px 20px;
+  margin: 15px 0;
+  
+}
+
+.bubble {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  position: absolute;
+  animation: float 8s infinite ease-in-out;
+}
+
+/* Positioning and animating bubbles */
+.bubble:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-duration: 10s;
+}
+.bubble:nth-child(2) {
+  top: 50%;
+  left: 30%;
+  animation-duration: 12s;
+}
+.bubble:nth-child(3) {
+  top: 40%;
+  left: 70%;
+  animation-duration: 8s;
+}
+.bubble:nth-child(4) {
+  top: 70%;
+  left: 50%;
+  animation-duration: 14s;
+}
+.bubble:nth-child(5) {
+  top: 10%;
+  left: 80%;
+  animation-duration: 11s;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-50px) scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1);
+    opacity: 0.5;
+  }
+}
+
+/* Card Section */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: #FFF9F9;
+  border-radius: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px ;
+  width: 246px;
+  height: 342px;
+  text-align: center;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  flex-direction: column; /* Stacks items vertically (if needed) */
+  
+}
+
+.feature-card img, .order-step img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.feature-card h3, .order-step h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  font-family: Poppins;
+  color:#005C99;
+}
+
+
+.feature-card p, .order-step p {
+  font-size: 15px;
+  color: #003C6F;
+  font-family: Poppins;
+}
+
+
+/* slides on Home Page */
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Adjust as needed */
+  margin: auto;
+  overflow: hidden;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 680px;
+  height: 360px;
+  display: block;
+  display: flex;
+  justify-content: center;
+  object-fit: contain;
+}
+
+.slide p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Animation for slideshow */
+@keyframes slide {
+  0%, 100% { transform: translateX(0%); }
+  33.33% { transform: translateX(-100%); }
+  66.66% { transform: translateX(-200%); }
+}
+
+.slides {
+  animation: slide 40s infinite; /* Adjust timing as needed */
+}
+
+.order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background-color: #FFF9F9;
+  border-radius: 25px;
+  padding: 40px;
+}
+
+.order-step {
+  text-align: center;
+  max-width: 200px;
+}
+
+.order-step img {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+}
+
+
+/* nav bar styling  */
+
+.navbar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #FFF9F9;
+  padding: 0px 60px;
+  margin: 0;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease; /* Smooth hide/show */
+}
+
+.navbar-container.hidden {
+  transform: translateY(-100%); /* Hide navbar when scrolling down */
+}
+
+
+
+.navbar-nav {
+    list-style-type: none;
+    /* margin-left: auto;  */
+  }
+  
+  /* Navbar brand on the left */
+  .navbar-brand {
+    text-decoration: none;
+  }
+  
+  /* Ensure the nav items are displayed horizontally */
+  .nav-item {
+    display: inline;
+  }
+  
+  /* Remove default link styling and add padding for better spacing */
+  .nav-link {
+    color: #0C0A3E; 
+    padding: 10px 15px;
+    text-decoration: none;
+    font-family: Poppins;
+    font-size: 18px;
+    position: relative;
+  }
+  
+    
+  .nav-link::after {
+    content: ''; /* Creates an empty content for the pseudo-element */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Start with no width */
+    height: 2px; /* Set the height of the underline */
+    background-color: rgba(0, 92, 153, 0.5);/* Set the color of the underline */
+    transition: width 0.5s ease, background-color 0.5s ease; /* Smooth transition for width */
+  }
+
+  .nav-link:hover {
+    color: #005C99; /* Change the text color when the link is hovered */
+}
+
+  .nav-link:hover::after {
+    width: 100%; /* Expand to full width on hover */
+  }
+
+
+  /* styling for forms */
 
 form{
     background-color: white;
-    max-width: 900px;
+    /* max-width: 900px; */
     padding: 30px;
-    border-radius: 5px;
+    border-radius: 40px;
    
 }
 
@@ -17,78 +377,627 @@ form{
 
 .form-label{
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
+    color: #0C0A3E;
+    margin-bottom: 5px;
     
 }
 
 .form-control{
     margin-bottom: 15px;
+    padding: 5px 5px;
+
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex:1;
+
+}
 
 .max-fields{
     display: flex;
     flex-direction: column;
     gap: 10px;
-
 }
 
 .small-control{
     max-width: 300px;
 }
 
+.line {
+    display: block;
+    margin-bottom: 5px; /* Adjust this value to control the spacing */
+}
 
 
+/* styling for view fishes page */
 .fishes{
     display: flex;
-    flex-wrap: wrap;
+
+    flex-direction: column;
+    /* flex-wrap: wrap; */
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    margin: 2px 60px;
 
 }
 
+.fishes-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Allows items to wrap to the next row */
+    padding: 0; /* Ensure no extra space */
+    margin: 0;
+    
+}
+
+
 .fish-card{
-    background-color: white;
-    box-shadow: 0 0 5px black;
+
+    flex: 0 1 calc(33.33% - 40px); /* Ensures three cards fit in one row */
+    box-sizing: border-box; /* Includes padding and borders in width calculation */
+    backdrop-filter: blur(6px);
+    /* cursor: pointer; */
+    transition: all 0.5s;
     overflow: hidden;
-    border-radius: 5px;
-    width: 400px;
-    height: 400px;
+    width: 380px;
+    height: 100%;
     margin: 20px;
     display: flex;
+    align-items: flex-start;
     flex-direction: column;
-    justify-content: space-between;
+    font-family: Inter;
+    /* justify-content: center; */
+    color: #0C0A3E;
 }
 
 .fish-card img{
-    height: 230px;
+    height: 250px;
     width: 100%;
     object-fit: cover;
+    border-radius: 8px;
 }
 
-.fish-card a{
+.fish-card p{
+    color: #828282;
+    padding-top: 10px;
+}
+
+.info-button{
     color: white;
+    font-size: 16px;
     display: block;
+    background: #005C99;
     height: 50px;
+    width: 122px;
+    /* border: #274B91; */
     display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    font-size: 14px ;
+    font-family: Poppins, Merriweather Sans;
+    border-radius: 25px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
 }
+
+
+.info-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .info-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
 
 .fish-card .fish-info{
-    padding: 0 10px;
+    padding: 10px 10px;
+} 
+
+.fish-card .fish-info h2,
+.fish-card .fish-info h3,
+.fish-card .fish-info p,
+.fish-card .fish-info h5 {
+    margin: 5px 0; /* Adjust the margin value as needed */
 }
 
 
-.fish-card h1{
+
+
+/* name */
+.fish-card h2{
     font-weight: bold;
-    font-size: 22px;
+    font-size: 25px;
     margin: 0;
 }
+
+/* Breed */
 
 .fish-card h3{
     font-weight: bold;
+    font-size: 18px;
+}
+
+.fish-card h4{
+    font-weight: lighter;
+    font-weight: 12px;
+}
+
+/* Availabilty */
+.fish-card h5{
+    font-weight: bolder;
     font-size: 15px;
+    height: 30px;
+    width: 120px;
+    text-transform: capitalize;
+    display: flex; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center; /* Add this line */
+    border-radius: 8px;
+    border: 2px solid #0C0A3E;
+
+}
+
+
+/* view-fish page */
+
+ .fish{
+  display: flex;
+  flex-direction: row;
+  margin: 40px 60px;
+  gap: 80px;
+
+
+
+}
+
+
+.fish-details{
+  width: 800px;
+}
+
+
+.fish h1, .fish h2{
+  line-height: 0.4;
+}
+
+.fish h1{
+  font-size: 48px;
+}
+
+.fish h3{
+  text-transform: capitalize;
+}
+
+.fish-photo img{
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 320px; 
+  margin: 60px auto;
+
+}
+
+
+/* styling for add-fish */
+
+.fish-form-container{
+  margin: 40px 60px;
+  width: 80%;
+  border: 6px solid #274B91; 
+  border-radius: 50px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add depth with shadow */
+  padding: 20px; /* Add inner spacing */
+  background: linear-gradient(145deg, #ffffff, #e6e9ef); /* Light gradient background */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+  
+}
+
+
+
+/* login form */
+.login-form{
+  max-width: 500px;
+  width: 100%;
+  align-items: center;
+  margin: 60px auto;;
+}
+
+
+
+
+
+/* styling for contact page */
+
+.contact-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.contact-details{
+    text-align: left;
+    padding: 20px;
+    margin:0 auto;
+    
+
+}
+
+.contact-details p {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+.contact-details h1{
+    font-size: 80px;
+}
+
+/* .contact-form{
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    border: 8px solid #274B91;
+    border-radius: 50px;
+} */
+
+.contact-form, .login-form {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 500px;
+  border: 6px solid #274B91; 
+  border-radius: 50px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add depth with shadow */
+  padding: 20px; /* Add inner spacing */
+  background: linear-gradient(145deg, #ffffff, #e6e9ef); /* Light gradient background */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+.contact-form:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+
+.contact-form h1, .login-form h1, .fish-form-container h1{
+  font-weight: 700;
+  font-size:48px;
+  margin: 0;
+}
+
+.contact-form label, .login-form label, .fish-form-container label{
+    color: #0C0A3E;
+    font-family: Poppins, Merriweather Sans;
+    font-size: 14px;
+}
+.name-form-div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 30px; 
+    width: 95%;
+
+}
+
+
+.contact-form label {
+    display: block;
+    margin-bottom: 5px;
+
+
+}
+
+.contact-form input, .contact-form textarea ,
+.login-form input,.login-form textarea, .search-bar input , .fish-form-container input, .fish-form-container textarea{
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+}
+
+
+
+.contact-form input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+.contact-form button, .login-form button, .fish-form-container button{
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #005C99;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Poppins;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.contact-form button:hover, .login-form button:hover {
+    background-color: #274B91;
+}
+
+/* View Fishes Heading */
+
+  .heading {
+    background-image: url("/static/images/heading-photo.png");
+    background-size: cover; /* Ensures the image covers the whole area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+    margin: 10px 0;
+    height: 545px; 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-family: Poppins, Merriweather Sans;
+}
+
+
+
+  .heading h1, .heading h2 {
     margin: 0;
+    padding: 0;
+    line-height: 1.2; /* Adjust this value to control the space between h1 and h2 */
+  }
+  
+.heading p{
+    max-width: 700px;
+    color: white;
+    font-family: Poppins, Merriweather Sans;
+    word-spacing: 2px;
+    align-items: center;
+    line-height: 1.5;
+    
+    
+}
+
+/* .pop{
+     background-image: url(uploads/Jujustu_Kaisen_Maki_Zenin.jpeg);
+     height: 200px;
+} */
+
+/* Contact button styling */
+.contact-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: white;
+  text-align: center;
+  color: #0C0A3E;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 18px;
+  font-family: Poppins;
+  cursor: pointer;
+  width:200px;
+  height: 50px;
+}
+
+.contact-button:hover {
+  background-color: #274B91;
+  color: white;
+}
+
+.search-bar{
+    padding: 20px 10px;
+}
+
+.search-bar input{
+    border-radius: 20px;
+    /* width: 100%; */
+    width: 300px;
+   
+    
+}
+
+
+
+/* footer styling -waves */
+
+.footer-container{
+    position: relative;
+}
+
+/* 
+.header {
+    position: relative;
+    text-align: center;
+    background: linear-gradient(
+      60deg,
+      rgba(84, 58, 183, 1) 0%,
+      rgba(0, 172, 193, 1) 100%
+    );
+    color: white;
+  }
+  
+  .logo {
+    width: 50px;
+    fill: white;
+    padding-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .inner-header {
+    height: 65vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+   */
+  .flex {
+    /*Flexbox for containers*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .waves {
+    position: relative;
+    width: 100%;
+    height: 15vh;
+    margin-bottom: -7px;
+    /*Fix for safari gap*/
+    min-height: 100px;
+    max-height: 150px;
+  }
+  
+  .content {
+    position: relative;
+    height: 20vh;
+    text-align: center;
+    background: linear-gradient(#59B3E3, #005C99);
+  }
+  
+  /* Animation */
+  
+  .parallax > use {
+    animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
+  }
+  
+  .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+  }
+  
+  .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+  }
+  
+  .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+  }
+  
+  .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+  }
+  
+  @keyframes move-forever {
+    0% {
+      transform: translate3d(-90px, 0, 0);
+    }
+  
+    100% {
+      transform: translate3d(85px, 0, 0);
+    }
+  }
+  
+  /* /* Shrinking for mobile */
+  @media (max-width: 768px) {
+    .waves {
+      height: 40px;
+      min-height: 40px;
+    }
+  
+    .content {
+      height: 30vh;
+    }
+  
+    h1 {
+      font-size: 24px;
+    }
+  }
+  
+
+
+
+
+  /* about page */
+  .about-us {
+    padding: 2rem;
+    /* background-color: #f9f9f9; */
+}
+
+.about-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.text-section {
+    flex: 1;
+    background-color: white;
+    padding: 20px 20px 35px 20px;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.text-section h2 {
+    font-size: 3rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #0077b6;
+}
+
+.text-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.image-section {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.image-section img {
+    max-width: 100%;
+    border-radius: 25px;
+    margin-bottom: 0.25rem;
+  
+}
+
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+    gap: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: white;
+    padding: 20px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+}
+
+.stat {
+    background: #EDF2F7;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.stat h3 {
+    font-size: 1.5rem;
+    color: #0077b6;
+    margin-bottom: 0.5rem;
+}
+
+.stat p {
+    font-size: 1rem;
+    color: #555;
 }

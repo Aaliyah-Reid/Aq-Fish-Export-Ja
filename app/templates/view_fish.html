@@ -2,13 +2,21 @@
 
 {% block main %}
 <div class="fish">
-    <img src="{{ url_for('get_image', filename=fish.photo_filename) }}" alt="Picture of {{ fish.name }}">
-    <div class="fish-info">
-          <h3>{{fish.name}}</h3>
-          <h2>{{fish.breed}}</h2>
-          <h1>{{fish.availability}}</h1>
-          <p>{{fish.description}}</p>
+    <div class="fish-details">
+          <h1 class="heading-text">{{fish.name}}</h1>
+          <h2 clas="heading-text">{{fish.breed}}</h2>
+          <h3 class="heading-text" style="color:#198549">{{fish.availability}}</h3>
+          <p class="para-text">{{fish.description}}</p>
+          <h3 class="heading-text" style="color:#0C0A3E;">How to Care</h3>
+          <p class="para-text">{{fish.add_info}}</p>
+
+          <a href="{{ url_for('contact') }}" class="info-button">Contact Us</a> 
 
     </div>
+
+    <div class="fish-photo">
+        <img src="{{ url_for('get_image', filename=fish.photo_filename) }}" alt="Picture of {{ fish.name }}">
+    </div>
+</div>
 
 {% endblock %}

@@ -1,67 +1,67 @@
 {% extends "base.html" %}
 
 {% block css %} 
-<style>
-    .contact-form {
-        margin: 20px auto;
-        width: 80%;
-        max-width: 600px;
-    }
-    .contact-form label {
-        display: block;
-        margin-bottom: 5px;
-    }
-    .contact-form input, .contact-form textarea {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .contact-form input[type="checkbox"] {
-        width: auto;
-        margin-right: 10px;
-    }
-    .contact-form button {
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .contact-form button:hover {
-        background-color: #0056b3;
-    }
-</style>
 {% endblock %}
 
 {% block main %}
 
+<div class="contact-container">
 
-<div class="contact-form">
-    <h1>Contact Us</h1>
-    <form action="/send-email" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+    <div class="contact-details">
+        <h1 class="heading-text">Contact Us</h1>
+        <p class="para-text">We'd love to hear from you! Whether you have questions about our fish export services, 
+            need assistance with a recent order, or want to learn more about our company, 
+            our team is here to help.<br> <br> We are committed to providing excellent customer service and look forward to assisting you with all your inquiries.
+            Your satisfaction is our top priority!</p>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <br>
+        <p>
+            <span class="line para-text">info@aqfe.com</span>
+            <span class="line para-text">(123) 456-7890.</span>
+        </p>
+        
+    </div>
 
-        <label for="fish">Fish Interested In (if applicable):</label>
-        <input type="text" id="fish" name="fish">
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" required></textarea>
-
-        <label>
-            <input type="checkbox" name="subscribe" value="subscribe">
-            I want to be notified about new stock.
-        </label>
-
-        <button type="submit">Send Message</button>
-    </form>
-</div>
+    <div class="contact-form">
+        <form action="{{ url_for('contact') }}" method="post">
+            {{ form.csrf_token }}
+    
+            <h1 class="heading-text" >Get in Touch</h1>
+            <h2 class="para-text" style="font-size: 24px;">Got questions? <br> We'd be happy to help you!</h2>
+    
+            <div class="name-form-div">
+                <div class="form-group">
+                    {{ form.first_name.label(class='form-label') }}
+                    {{ form.first_name(placeholder="John", class="form-control", required=True) }}
+                </div>
+                <div class="form-group">
+                    {{ form.last_name.label(class='form-label') }}
+                    {{ form.last_name(placeholder="Doe", class="form-control", required=True) }}
+                </div>
+            </div>
+            
+            {{ form.email.label(class='form-label') }}
+            {{ form.email(type="email", placeholder="johndoe@gmail.com", class="form-control", required=True) }}
+    
+            {{ form.fish.label(class='form-label') }}
+            {{ form.fish(placeholder="Enter fish(es) you're interested In (if applicable)", class="form-control") }}
+    
+            {{ form.subject.label(class='form-label') }}
+            {{ form.subject(placeholder="Enter Subject", class="form-control", required=True) }}
+    
+            {{ form.message.label(class='form-label') }}
+            {{ form.message(rows="4", placeholder="Enter Message", class="form-control", required=True) }}
+    
+            <label>
+                {{ form.subscribe(class="form-check-input") }}
+                I want to be notified about new stock.
+            </label>
+    
+            <button type="submit" name="submit">Send Email</button>
+        </form>
+    </div>
+    
 
 {% endblock %}
 

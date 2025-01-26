@@ -10,10 +10,11 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[InputRequired()])
 
 class ContactForm(FlaskForm):
-    name = StringField('Name', validators=[DataRequired()])
+    first_name = StringField('First Name', validators=[DataRequired()])
+    last_name= StringField('Last Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     subject = StringField('Subject', validators=[InputRequired()])
-    fish = StringField('Fish Interested In (optional)') 
+    fish = StringField('Fish Interested In ') 
     message = TextAreaField('Message', validators=[DataRequired()])
     subscribe = BooleanField('I want to be notified about new stock.')
 
@@ -23,6 +24,7 @@ class AddFishForm(FlaskForm):
     description = TextAreaField('Description', validators=[InputRequired()])
     breed = StringField('Fish Breed', validators=[InputRequired()]) 
     availability = SelectField('Availability', choices=[('available', 'Available'), ('unavailable', 'Unavailable')], validators=[InputRequired()])
+    add_info = TextAreaField('Additional Information', validators=[InputRequired()])
     photo = FileField('Image File', validators=[DataRequired(), FileAllowed(['jpg', 'png', 'jpeg'], 'Images only!')])
 
 

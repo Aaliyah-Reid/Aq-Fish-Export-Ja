@@ -1,14 +1,260 @@
 {% extends "base.html" %}
 
-{% block css %}{% endblock %}
+{% block css %}
+
+{% endblock %}
 
 {% block main %}
-<div class="p-5 mb-4 bg-light rounded-3 border">
-  <div class="container-fluid py-5">
-    <h1 class="display-5 fw-bold">Hello, world!</h1>
-    <p>We export fishes.</p>
+
+<div  style="display: flex; justify-content: space-between; align-items: center;">
+  <!-- Left Section -->
+  <div style="flex: 1;">
+    <h1 class="heading-text" style="font-size: 72px; margin-top: 0;">Experience the Beauty of the Ocean in Your Home</h1>
+    <p class="para-text" style="padding-bottom: 14px;">
+      Since 2005, Blue Wave has been your trusted partner in bringing the wonders of the fresh waters to homes around the world. Our motto, 
+      'Where Passion Meets Aquatics,' reflects our commitment to delivering the finest selection of exotic fish, sourced responsibly and 
+      shipped with the utmost care. Whether you're a seasoned aquarist or just starting your aquatic journey, we’re here to help you dive into 
+      the magic of the ocean—anytime, anywhere.
+    </p>
+    <div style="display: flex; gap: 10px; margin-top: 20px;">
+      <button class="buttons" style="height:42px; width:182px;">View Fishes  <i class="fi fi-bs-arrow-up-right" style="color: white; margin-left: 8px;"></i></button>
+      <a href="#" style="padding: 10px 20px; color: #005C99; text-decoration: none; font-family: Poppins; font-size: 16px;"><i class="fa-solid fa-phone" style="color: #005C99; margin-right: 8px;"></i>Schedule a Meeting</a>
+    </div>
+  </div>
+
+  <!-- Right Section -->
+  <div  style="flex: 1; text-align: right;">
+    <img src="{{ url_for('static', filename='images/home-photo.jpg') }}" alt="Ocean Home" style="max-width: 90%; height: auto; margin-left: 10px; border-radius: 25px;">
   </div>
 </div>
-{% endblock %}
+
+<hr style="border: 0; height: 1px; margin-top: 80px; background-color: rgba(142, 145, 147, 0.5);">
+
+<!-- Why Blue Wave? -->
+ <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px;">
+  <div class="justify-content: center; align-items:center" >
+    <h1 class="heading-text" style="font-size: 64px; text-align: center; margin-bottom: 0;">Why Blue Wave is a "Fin"-tastic Choice</h1>
+    <p class="para-text" style="font-size: 32px; text-align: center; margin-top: 0;">Swim through our standout features and discover <br> why we’re the catch of the day for fish lovers worldwide!</p>
+  </div>
+
+  <div class="bubble-background">
+    <!-- Bubbles -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+
+      <!-- Feature Cards -->
+      <div class="features">
+        <div class="feature-card">
+          <img src="{{ url_for('static', filename='images/world.png') }}" alt="Worldwide Shipping">
+          <h3>Worldwide Shipping</h3>
+          <p>Wherever you are in the world, we ensure your fish arrive safely and on time. We’ve mastered the art of delivering happiness across borders.</p>
+        </div>
+        <div class="feature-card">
+          <img src="{{ url_for('static', filename='images/fish.png') }}" alt="Healthy Fishes">
+          <h3>Healthy Fishes</h3>
+          <p>Our experts select only the healthiest and most vibrant fish, ensuring they thrive in your aquarium.</p>
+        </div>
+        <div class="feature-card">
+          <img src="{{ url_for('static', filename='images/box.png') }}" alt="Secure Packaging">
+          <h3>Secure Packaging</h3>
+          <p>Each fish is meticulously packed in temperature-controlled, secure shipping boxes to maintain their well-being during transit.</p>
+        </div>
+        <div class="feature-card">
+          <img src="{{ url_for('static', filename='images/leaf.png') }}" alt="Sustainable Sourcing">
+          <h3>Sustainable Sourcing</h3>
+          <p>Committed to sustainability, we partner with ethical breeders and suppliers to protect marine ecosystems for future generations.</p>
+        </div>
+      </div>
+    </div>
+    </div>
+
+      <!-- Featured Fishes -->
+
+      <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 10px;">
+        <div class="justify-content: center; align-items:center" >
+          <h1 class="heading-text" style="font-size: 64px; text-align: center; margin-bottom: 0;">Explore our Exotic Collection</h1>
+          <p class="para-text" style="font-size: 32px; text-align: center; margin-top: 0;">Dive into our handpicked selection of vibrant and rare fish species, <br> bred and raised with care at BlueWave Farm.</p>
+        </div>
+
+        <!-- Slideshow and Text -->
+         <div style="display: flex; align-items: center; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px;">
+          <!-- Slideshow on Left -->
+          <div class="slideshow" style="flex: 1">
+            <div class="slides">
+              <div class="slide">
+                <img src="{{ url_for('static', filename='images/parrot-convict.png') }}" alt="Parrot Convict">
+                <p class="para-text">Parrot Convict - Bold and striking in black and white.</p>
+              </div>
+              <div class="slide">
+                <img src="{{ url_for('static', filename='images/jack-dempsey.png') }}" style="transform: scaleX(-1);" alt="Jack Dempsey">
+                <p class="para-text">Jack Dempsey - Aggressive beauty with electric colors.</p>
+              </div>
+              <div class="slide">
+                <img src="{{ url_for('static', filename='images/peacock.png') }}" style="transform: scaleX(-1);" alt="Peacock">
+                <p class="para-text">Peacock Cichlid - Bright and lively with dazzling hues.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Para on Right -->
+
+          <div style="flex: 1; padding: 0px 40px; margin:0;">
+            <h3 style="font-size: 24px; margin-bottom: 24px; color: #005C99; font-family: Poppins;">
+              Bred and Raised at BlueWave Farm
+            </h3>
+            <p class="para-text">
+              At BlueWave Farm, we specialize in breeding and raising exotic fish in a controlled, 
+              eco-friendly environment. Our team of experts ensures that every fish is healthy, 
+              stress-free, and ready to thrive in your home aquarium. From the moment they hatch 
+              to the day they are shipped, our fish are cared for with the utmost attention to detail. 
+              We are committed to sustainable practices that protect marine life and ensure the 
+              highest quality for our customers worldwide.
+            </p>
+          </div>
+
+         </div>
+      </div>
+
+    {% endblock %}
+      <!-- How To Order -->
+       {% block full_width %}
+
+       <div style="width: 100%; background-color: #EDF2F7; ">
+         <div class="container">
+           <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 20px; padding: 20px;">
+             <div style="justify-content: center; align-items: center;">
+               <h1 class="heading-text" style="font-size: 64px; text-align: center; margin-bottom: 0;">How to Order from Blue Wave?</h1>
+               <p class="para-text" style="font-size: 32px; text-align: center; margin-top: 0;">
+                Getting your dream aquarium has never been easier!
+               </p>
+             </div>
+           </div>
+
+           <div class="order" style="margin-bottom: 50px;">
+
+            <div class="order-step">
+              <img  src="{{ url_for('static', filename='images/search.png') }}"  alt="Magnifying Glass">
+              <h3>Explore & Select</h3>
+              <p>Browse our collection of fish, corals, plants, and supplies. Save your favorites or note them down—no cart needed!</p>
+            </div>
+
+            <hr style="
+              border: 0; 
+              height: 100px; /* Adjust height as needed */
+              width: 1px; /* Adjust thickness as needed */
+              background-color: rgba(142, 145, 147, 0.5); /* Adjust color and opacity */
+              margin: 0 10px; /* Adjust spacing as needed */
+              
+              ">
+
+            <div class="order-step">
+              <img  src="{{ url_for('static', filename='images/mail.png') }}"  alt="Mail">
+              <h3>Contact Us</h3>
+              <p>Use the “Contact Us” form to share your selections. We’ll reply with a personalized quote and details.</p>
+            </div>
+
+            
+            <hr style="
+              border: 0; 
+              height: 100px; /* Adjust height as needed */
+              width: 1px; /* Adjust thickness as needed */
+              background-color: rgba(142, 145, 147, 0.5); /* Adjust color and opacity */
+              margin: 0 10px; /* Adjust spacing as needed */
+              
+              ">
+
+            <div class="order-step">
+              <img  src="{{ url_for('static', filename='images/check.png') }}"  alt="Check Mark">
+              <h3>Confirm & Receive</h3>
+              <p>Confirm your order, and we’ll handle the rest. Your aquatic life arrives safely, ready for your aquarium!</p>
+            </div>
+
+           </div>
+
+
+         </div>
+       </div>
+
+    
+
+
+     {% endblock %}
+
+     {% block after_full_width %}
+
+     
+     <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 10px;">
+      <div class="justify-content: center; align-items:center" >
+        <h1 class="heading-text" style="font-size: 64px; text-align: center; margin-bottom: 0;">Tips for a Healthy Aquarium</h1>
+        <p class="para-text" style="font-size: 32px; text-align: center; margin-top: 0;">New to aquatics? Here are some tips to get started!</p>
+      </div>
+
+     </div>
+
+
+     
+        <!-- Slideshow and Text -->
+        <div style="display: flex; align-items: center; gap: 20px; max-width: 1200px; margin: 0 auto; padding: 20px;">
+          
+
+            <!-- Para on Right -->
+
+          <div style="flex: 1; padding: 0px 40px; margin:0;">
+            <h3 style="font-size: 24px; margin-bottom: 24px; color: #005C99; font-family: Poppins;">
+              Your fish will thank you—let’s dive in! 
+            </h3>
+            <ul class="para-text">
+              <!-- Tip 1 -->
+              <li style="margin-bottom: 10px;">Choose the right tank size for your fish to ensure they have enough space to thrive.</li>
+              
+              <!-- Tip 8 -->
+              <li style="margin-bottom: 10px;">Quarantine new fish for 2-4 weeks to prevent the spread of diseases.</li>
+
+              <!-- Tip 2 -->
+              <li style="margin-bottom: 10px;">Maintain proper water temperature using a reliable aquarium heater.</li>
+          
+              <!-- Tip 3 -->
+              <li style="margin-bottom: 10px;">Perform regular water changes (10-20% weekly) to keep the water clean and healthy.</li>
+              
+               <!-- Tip 4 -->
+              <li style="margin-bottom: 10px;">Use a quality filter to remove waste and maintain clear water.</li>
+
+              <!-- Tip 5 -->
+              <li style="margin-bottom: 10px;">Add live plants to improve water quality and provide natural hiding spots for fish.</li>
+            </ul>
+          </div>
+
+          <div class="slideshow" style="flex: 1">
+            <div class="slides">
+              <div class="slide">
+                <img src="{{ url_for('static', filename='images/green-severum.png') }}" alt="Green Severum">
+                <p class="para-text">Green Severum - Gentle beauty with earthy tones.</p>
+              </div>
+              <div class="slide">
+                <img src="{{ url_for('static', filename='images/maingano.png') }}" style="transform: scaleX(-1);" alt="Maingano">
+                <p class="para-text">Maingano - Bold stripes with vibrant energy.</p>
+              </div>
+              <div class="slide">
+                <img src="{{ url_for('static', filename='images/green-terror.png') }}" style="transform: scaleX(-1);" alt="Green Terror">
+                <p class="para-text">Green Terror - Stunning colors with bold personality.</p>
+              </div>
+              
+            </div>
+          </div>
+
+          
+
+         </div>
+     
+     
+     {% endblock %}
+       
+
+ 
+
 
 {% block js %}{% endblock %}

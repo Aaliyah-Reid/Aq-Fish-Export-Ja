@@ -2,14 +2,15 @@
 
 {% block main %}
 
-<h1 class="display-5 fw-bold">Add Fish</h1>
 
-<div class="form_container">
+<div class="fish-form-container">
+
 
     <form action="{{url_for('addFish')}}" method="post" enctype="multipart/form-data">
         {{form.csrf_token}}
 
-        <div class="max-fields">
+        <h1 class="heading-text" style="margin-bottom: 20px;">Add Fish</h1>
+        <div class="fish-fields">
             {{form.name.label(class='form-label')}}
             {{ form.name(placeholder="Enter fish name", class="form-control")}}
 
@@ -23,6 +24,9 @@
             {{form.availability.label(class='form-label')}}
             {{ form.availability(class="form-control")}}
 
+            {{form.add_info.label(class='form-label')}}
+            {{ form.add_info(placeholder="Provide additional info and(or) how to care for the fish", class="form-control")}}
+
             {{form.photo.label(class='form-label')}}
             {{form.photo(class="form-contorl small-control")}}
     
@@ -32,7 +36,7 @@
         
 
         
-        <button type="submit" name="submit" class="btn btn-primary">Add Fish</button>
+        <button type="submit" name="submit">Add Fish</button>
         
     </form>
 
