@@ -27,20 +27,20 @@ Before running the project, ensure the following are installed:
 
 ### 1. Clone the Repository
 Clone the project repository and navigate to its directory:
-git clone <repository-url>
-cd <repository-folder>
+`git clone <repository-url>`
+`cd <repository-folder>`
 
 ### 2. Create Virtual Environment
-python3 -m venv venv
-source venv/bin/activate    # On Windows: venv\Scripts\activate
+`python3 -m venv venv`
+`source venv/bin/activate`   # On Windows: `venv\Scripts\activate`
 
 ### 3. Install Requirements
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 
 ### 4. Set up Database
 
-CREATE DATABASE your_database_name;
-DATABASE_URL=postgresql://<username>:<password>@localhost:5432/your_database_name
+`CREATE DATABASE your_database_name;`
+`DATABASE_URL=postgresql://<username>:<password>@localhost:5432/your_database_name`
 
 To Access the Admin Dashboard
 Visit the /admin/dashboard route for admin-specific features.
