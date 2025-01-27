@@ -1,4 +1,3 @@
-##How to Run
 # Flask Fish Store Project
 
 This is a Flask web application for managing a fish store. Customers can browse available fishes, while admins can manage them through the dashboard.
